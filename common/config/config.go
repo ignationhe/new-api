@@ -30,7 +30,8 @@ var (
 	LogDir = GetEnvOrDefault("LOG_DIR", "")
 
 	// Rate limiting
-	GlobalApiRateLimitNum = GetEnvOrDefaultInt("GLOBAL_API_RATE_LIMIT", 180)
+	// Increased from 180 to 300 to be less restrictive for personal use
+	GlobalApiRateLimitNum = GetEnvOrDefaultInt("GLOBAL_API_RATE_LIMIT", 300)
 	GlobalApiRateLimitDuration int64 = 3 * 60 // seconds
 
 	// Token and quota settings
