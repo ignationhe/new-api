@@ -42,7 +42,8 @@ var (
 	FrontendBaseURL = GetEnvOrDefault("FRONTEND_BASE_URL", "")
 
 	// Worker concurrency
-	WorkerCount = GetEnvOrDefaultInt("WORKER_COUNT", 4)
+	// Bumped default from 4 to 8 for better throughput on my machine
+	WorkerCount = GetEnvOrDefaultInt("WORKER_COUNT", 8)
 
 	// Version info (set at build time)
 	Version = "v0.0.1"
@@ -112,6 +113,4 @@ func GetLock() {
 }
 
 // ReleaseLock releases the global config read-write mutex.
-func ReleaseLock() {
-	mu.Unlock()
-}
+func ReleaseLock() 
