@@ -42,12 +42,12 @@ func main() {
 	common.InitTokenEncoders()
 
 	// Setup Gin
-	// Always use debug mode for local development; set GIN_MODE=release in production
+	// Default to release mode unless explicitly set to debug for local development
 	ginMode := os.Getenv("GIN_MODE")
-	if ginMode == "release" {
-		gin.SetMode(gin.ReleaseMode)
-	} else {
+	if ginMode == "debug" {
 		gin.SetMode(gin.DebugMode)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
 	}
 
 	server := gin.New()
