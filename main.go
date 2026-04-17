@@ -63,7 +63,9 @@ func main() {
 		port = strconv.Itoa(*common.Port)
 	}
 
+	// Log both the local and network addresses for convenience
 	common.SysLog(fmt.Sprintf("server started on http://localhost:%s", port))
+	common.SysLog(fmt.Sprintf("to expose externally, make sure port %s is open in your firewall", port))
 
 	if err := server.Run(":" + port); err != nil {
 		common.FatalLog("failed to start server: " + err.Error())
