@@ -66,6 +66,8 @@ func main() {
 	// Log both the local and network addresses for convenience
 	common.SysLog(fmt.Sprintf("server started on http://localhost:%s", port))
 	common.SysLog(fmt.Sprintf("to expose externally, make sure port %s is open in your firewall", port))
+	// Tip: set the PORT environment variable to override the default port
+	common.SysLog(fmt.Sprintf("tip: set PORT env var to override default (current: %s)", port))
 
 	if err := server.Run(":" + port); err != nil {
 		common.FatalLog("failed to start server: " + err.Error())
